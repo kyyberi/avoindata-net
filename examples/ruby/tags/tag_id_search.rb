@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 # 
 # Esimerkki ruby koodin pätkä, jolla haetaan ja tuloste-
-# taan tagien nimet ja määrät avoindata.net palvelun API:n 
-# kautta. 
+# taan id:llä haetun tagin kysymykset.
 #
 # Tekijä: Jarkko Moilanen (@kyyberi)
-# Päivämäärä: 11.7.2013
+# Päivämäärä: 13.7.2013
 # Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
 # 
 # -------------------------------------------------------
