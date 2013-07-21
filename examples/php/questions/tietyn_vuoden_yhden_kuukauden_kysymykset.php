@@ -1,6 +1,6 @@
 <?php
 /* #########################################
-   PHP esimerkki miten kuluvan vuoden
+   PHP esimerkki miten tietyn vuoden
    yhden kuukauden kysymykset luetaan 
 
    Jarkko Moilanen
@@ -10,19 +10,21 @@
 */
 
 
-$json_url = "http://api.avoindata.net/questions/month/4";
+$json_url = "http://api.avoindata.net/questions/2013/4";
 $json = file_get_contents($json_url);
 
 $obj = json_decode($json);
 
 if($questions = $obj->{"questions"}){
 	foreach ($questions as $question) {
-  		echo $question->title;
-		echo $question->id;
+  		echo "\n".$question->title;
+		echo "\n".$question->id;
 		$date = $question->created;
-		echo gmdate('Y.m.d', $date);
+		echo "\n".gmdate('d.m.Y', $date);
 		$tags = $question->tags;
-		echo $tags;
+		foreach ($tags as $tag) {
+			echo "\n".$tag;
+		}
 	}
 }
 
