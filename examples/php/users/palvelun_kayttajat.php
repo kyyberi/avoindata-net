@@ -23,11 +23,11 @@ foreach ($users as $user) {
 }
 
 echo "\n RIGHTS: \n";
-$arr = json_decode($json, true);
+$rights = $obj->{"rights"};
 
-echo $arr['rights']['contentLicense']; 
-echo $arr['rights']['dataLicense']; 
-echo $arr['rights']['copyrightNotice']; 
-echo $arr['rights']['attributionText'];
-echo $arr['rights']['attributionURL'];  
+echo $rights[0]->contentLicense; 
+echo $rights[0]->dataLicense; 
+echo $rights[0]->copyrightNotice; 
+echo $rights[0]->attributionText;
+echo $rights[0]->attributionURL;  
 ?>
