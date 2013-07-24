@@ -9,15 +9,15 @@
 
 */
 
-$domain1 = 'http://api.avoindata.net/license';
-$domain2 = 'http://api.avoindata.net/fails';
+$get1 = 'http://api.avoindata.net/license';
+$get2 = 'http://api.avoindata.net/fails';
 
 function get_http_response_code($domain) {
   $headers = get_headers($domain);
   return substr($headers[0], 9, 3);
 }
 
-$http_response_code = get_http_response_code($domain1);
+$http_response_code = get_http_response_code($get1);
 
 if ( $http_response_code == 200 ) {
   echo "OKAY!\n";
@@ -26,7 +26,7 @@ if ( $http_response_code == 200 ) {
 }
 
 
-$http_response_code = get_http_response_code($domain2);
+$http_response_code = get_http_response_code($get2);
 
 if ( $http_response_code == 200 ) {
   echo "OKAY!\n";
