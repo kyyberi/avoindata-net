@@ -1,7 +1,7 @@
 <html>
 <!-- #########################################
-   Jquery esimerkki miten tagien nimet ja niihin
-   liittyvien kysymysten määrät luetaan
+   Jquery esimerkki miten tagin 'Tampere' 
+   kysymysket ja niihin liittyvät tiedot
 
    Jarkko Moilanen
    26.7.2013
@@ -17,15 +17,18 @@
  $(document).ready(function(){
  $.ajax({
      type: "GET",
-     url: "http://api.avoindata.net/tags",
+     url: "http://api.avoindata.net/tags/title/tampere",
      dataType: 'json',   
      cache: false,
      success: function(data)
       {
-        // JSON sisältää kaksi objektia: tags ja rights
-        $.each(data.tags, function (i, tag) {
+        // JSON sisältää kaksi objektia: tampere ja rights
+        $.each(data.tampere, function (i, question) {
 		// tee mitä haluat jokaiselle
-    		$("#taglist").append("<li>"+ i + ". " +tag.title+ " ["+tag.count+"]</li>");
+		var d = new Date(0); 
+		d.setUTCSeconds(question.created);
+		var curr_date = d.getDate() + "." + d.getMonth() + "." + d.getFullYear();		
+    		$("#tampere").append("<li><span>["+ curr_date  +"]</span><a href=" + question.url  + ">" +question.title+ "</a></li>");
 	});
 
       } 
@@ -36,6 +39,6 @@
 
 </head>
 <body>
-<div id="taglist"></div><br/>
+<div id="tampere"></div><br/>
 </body>
 </html>
