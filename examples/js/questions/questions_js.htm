@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/questions",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+	// JSON sisältää kaksi objektia: questions ja rights
+        $.each(data.questions, function (i, question) {
+		// tee mitä haluat jokaiselle
+    		$("#questionlist").append("<li>" +question.date+ " ["+question.count+"]</li>");
+	});
+
+      } 
+  });
+});
+
+</script>
+</head>
+<body>
+<div id="questionlist"></div>
+</body>
+</html>
