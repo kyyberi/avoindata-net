@@ -1,0 +1,43 @@
+<html>
+<!-- #########################################
+   Jquery esimerkki miten viimeisimmät 20 
+   kysymystä listataan
+
+   Jarkko Moilanen
+   26.7.2013
+   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/questions",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+	// JSON sisältää kaksi objektia: questions ja rights
+        $.each(data.questions, function (i, question) {
+		// tee mitä haluat jokaiselle
+		var d = new Date(0);
+		d.setUTCSeconds(question.created);
+		var curr_date = d.getDate() + "." + d.getMonth() + "." + d.getFullYear();	
+    		$("#questionlist").append("<li><a href='" + question.url + "'>" +question.title+ " </a><span>["+curr_date+"]</span></li>");
+	});
+
+      } 
+  });
+});
+
+</script>
+</head>
+<body>
+<ol id="questionlist"></ol>
+</body>
+</html>
