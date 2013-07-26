@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/tags",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+        // JSON sisältää kaksi objektia: tags ja rights
+        $.each(data.tags, function (i, tag) {
+		// tee mitä haluat jokaiselle
+    		$("#taglist").append("<li>"+ i + ". " +tag.title+ " ["+tag.count+"]</li>");
+	});
+
+      } 
+  });
+});
+
+</script>
+
+</head>
+<body>
+<div id="taglist"></div><br/>
+</body>
+</html>
