@@ -1,0 +1,44 @@
+<html>
+<!-- #########################################
+   jQuery esimerkki miten luetaan yhden kayttajan
+   tiedot.
+
+   Jarkko Moilanen
+   28.7.2013
+   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/users/2",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+        // JSON sisältää kaksi objektia: users ja rights
+        $.each(data.user, function (i, user) {
+		// tee mitä haluat jokaiselle
+		$("#userlist").append("<div id='"+ i  +"' class='user'>");
+    		$("#userlist .user").append("<div>Handle: " +user.handle+ "</div>");
+		$("#userlist .user").append("<div>About: " + user.about +"</div>");
+		$("#userlist .user").append("<div>Profile: <a href='" +user.profile_url+ "'>" + user.name +"</a></div>");
+	});
+
+      } 
+  });
+});
+
+</script>
+
+</head>
+<body>
+<div id="userlist"></div>
+</body>
+</html>
