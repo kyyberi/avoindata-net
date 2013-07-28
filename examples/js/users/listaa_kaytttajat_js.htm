@@ -1,0 +1,40 @@
+<html>
+<!-- #########################################
+   jQuery esimerkki miten listataan kayttajat
+
+   Jarkko Moilanen
+   28.7.2013
+   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/users",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+        // JSON sisältää kaksi objektia: users ja rights
+        $.each(data.users, function (i, user) {
+		// tee mitä haluat jokaiselle
+    		$("#userlist").append("<li>" +user.handle+ "</li>");
+	});
+
+      } 
+  });
+});
+
+</script>
+
+</head>
+<body>
+<ol id="userlist"></ol>
+</body>
+</html>
