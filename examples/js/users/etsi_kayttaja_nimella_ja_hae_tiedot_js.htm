@@ -1,0 +1,55 @@
+<html>
+<!-- #########################################
+   jQuery yhdistelmä esimerkki miten etsitään
+   käyttäjä käyttäjätunnuksella (handle) ja 
+   haetaan tarkemmat tiedot käyttäjästä ID:llä
+
+   Jarkko Moilanen
+   28.7.2013
+   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ var needle = "smoinen";
+ $.ajax({
+    type: "GET",
+    url: "http://api.avoindata.net/users",
+    dataType: 'json',   
+    cache: false,
+    success: function(data)
+     {
+      // JSON sisältää kaksi objektia: users ja rights
+      $.each(data.users, function (i, user) {
+	// tee mitä haluat jokaiselle
+	userhandle = user.handle;
+	if(userhandle == needle){
+  	  userid = user.userid;
+          needle_url = "http://api.avoindata.net/users/" + userid;
+ 	  $.ajax({
+     	   type: "GET",
+     	   url: needle_url,
+     	   dataType: 'json',
+     	   cache: false,
+     	   success: function(needledata){
+	    $("#list").append("<li>" +needle+ ":" + needledata.user[0]['profile_url'] + "</li>");}
+	    });
+   	 }else{}
+
+	}); // first each
+       } // first success	
+  });
+});
+
+</script>
+
+</head>
+<body>
+<ol id="list"></ol>
+</body>
+</html>
