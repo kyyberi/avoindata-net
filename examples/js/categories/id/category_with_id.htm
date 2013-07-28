@@ -21,7 +21,7 @@
      cache: false,
      success: function(data)
       {
-        // JSON sisältää kaksi objektia: categories ja rights
+        // JSON sisältää kaksi objektia: questions ja rights
         $.each(data.questions, function (i, question) {
 		// tee mitä haluat jokaiselle
     		$("#list").append("<li><a href='" + question.url +"'>" +question.title+ "</a></li>");
