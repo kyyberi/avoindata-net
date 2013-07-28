@@ -1,0 +1,42 @@
+<html>
+<!-- #########################################
+   Jquery esimerkki miten kategorioiden 
+   nimet ja niihin liittyvien kysymysten määrät 
+   luetaan
+
+   Jarkko Moilanen
+   26.7.2013
+   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/categories",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+        // JSON sisältää kaksi objektia: categories ja rights
+        $.each(data.categories, function (i, category) {
+		// tee mitä haluat jokaiselle
+    		$("#list").append("<li>"+ i + ". " +category.title+ " ["+category.count+"]</li>");
+	});
+
+      } 
+  });
+});
+
+</script>
+
+</head>
+<body>
+<div id="list"></div><br/>
+</body>
+</html>
