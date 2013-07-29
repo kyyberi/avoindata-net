@@ -1,0 +1,41 @@
+<html>
+<!-- #########################################
+   jQuery esimerkki miten listataan yhden käyttäjän
+   kysymykset
+
+   Jarkko Moilanen
+   29.7.2013
+   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/users/id/2/questions",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+        // JSON sisältää kaksi objektia: questions ja rights
+        $.each(data.questions, function (i, question) {
+		// tee mitä haluat jokaiselle
+    		$("#list").append("<li><a href='" + question.url + "'>" +question.title+ "</a></li>");
+	});
+
+      } 
+  });
+});
+
+</script>
+
+</head>
+<body>
+<ol id="list"></ol>
+</body>
+</html>
