@@ -1,7 +1,7 @@
 <?php
 /* #########################################
    PHP esimerkki miten käyttäjänimet ja 
-   vastausmäärät luetaan.
+   kysymysmäärät luetaan.
 
    Jarkko Moilanen
    23.7.2013
@@ -10,7 +10,7 @@
 */
 
 
-$json_url = "http://api.avoindata.net/users/answers";
+$json_url = "http://api.avoindata.net/users/questions";
 $json = file_get_contents($json_url);
 
 $obj = json_decode($json);
