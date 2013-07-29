@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+<form action="http://api.avoindata.net/search/questions" id="searchForm">
+<input type="text" name="s" placeholder="Search..." />
+<input type="submit" value="Search" />
+</form>
+
+<script>
+/* attach a submit handler to the form */
+$("#searchForm").submit(function(event) {
+     $('#list').empty();
+     $("#list").append("<li>Etsitään...</li>");
+     event.preventDefault();
+
+     var $form = $( this ),
+     needle = $form.find( 'input[name="s"]' ).val(),
+     url = $form.attr( 'action' );
+     var posting = $.post( url, { term: needle } );
+  
+     posting.done(function( data ) {
+	$('#list').empty();
+	if(data.questions.length > 0){
+		$.each(data.questions, function (i, question) {
+			// tee mitä haluat jokaiselle
+     			$("#list").append("<li><a href='" + question.url + "'>" +question.title+ "</a></li>");
+		});
+	}else{
+		$("#list").append("<li>Hups. Kokeile toisilla sanoilla.</li>");
+	}
+	
+     });
+});
+
+</script>
+<body>
+<ol id="list"></ol>
+</body>
+</html>
