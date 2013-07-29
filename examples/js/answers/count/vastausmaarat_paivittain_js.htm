@@ -1,0 +1,40 @@
+<html>
+<!-- #########################################
+   Jquery esimerkki miten vastausten määrät
+   päivittäin luetaan
+
+   Jarkko Moilanen
+   29.7.2013
+   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/answers/count",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+        // JSON sisältää kaksi objektia: answers ja rights
+        $.each(data.answers, function (i, answer) {
+		// tee mitä haluat jokaiselle. Vanhin tulee ensin. 
+    		$("#list").append("<li>" +answer.date+ " ["+answer.count+"]</li>");
+	});
+
+      } 
+  });
+});
+
+</script>
+
+</head>
+<body>
+<div id="list"></div><br/>
+</body>
+</html>
