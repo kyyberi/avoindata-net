@@ -10,7 +10,7 @@
 */
 
 
-$json_url = "http://api.avoindata.net/answers";
+$json_url = "http://api.avoindata.net/answers/count";
 $json = file_get_contents($json_url);
 
 $obj = json_decode($json);
