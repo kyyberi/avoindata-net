@@ -1,0 +1,108 @@
+<html>
+<head>
+<style>
+a {
+	color: #fff;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+#avoindata-net {
+	background-color:#303030;
+	width:300px;
+}
+
+#avoindata-net h3{
+	background-color:#303030;
+	color: #fff;
+}
+#avoindata-net  ol {
+    	counter-reset:li; /* Initiate a counter */
+    	margin-left:0; /* Remove the default left margin */
+    	padding-left:0; /* Remove the default left padding */
+    
+}
+#avoindata-net ol > li {
+    	position:relative; /* Create a positioning context */
+    	margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+   	padding:4px 8px; /* Add some spacing around the content */
+    	list-style:none; /* Disable the normal item numbering */
+    	background-color:#303030;
+    	margin-top:10px;
+}
+#avoindata-net ol > li:before {
+    	content:counter(li); /* Use the counter as content */
+    	counter-increment:li; /* Increment the counter by 1 */
+    	/* Position and style the number */
+    	position:absolute;
+    	top:-2px;
+    	left:-2em;
+    	-moz-box-sizing:border-box;
+    	-webkit-box-sizing:border-box;
+    	box-sizing:border-box;
+    	width:2em;
+    	/* Some space between the number and the content in browsers that support
+       	generated content but not positioning it (Camino 2 is one example) */
+    	margin-right:8px;
+    	padding:4px;
+    	border-bottom:1px solid #666;
+    	color:#fff;
+    	background:#666;
+    	font-weight:bold;
+    	font-family:"Helvetica Neue", Arial, sans-serif;
+    	text-align:center;
+    	margin-top:9px;
+}
+#avoindata-net li ol,
+#avoindata-net li ul {margin-top:6px;}
+#avoindata-net ol ol li:last-child {margin-bottom:0;}
+
+
+#avoindata-net span {
+	display:block;
+	color:#fff;
+	font-size:0.8em;
+	margin-top:4px;
+}
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- # Jquery -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+ $(document).ready(function(){
+ $.ajax({
+     type: "GET",
+     url: "http://api.avoindata.net/questions",
+     dataType: 'json',   
+     cache: false,
+     success: function(data)
+      {
+	// JSON sisältää kaksi objektia: questions ja rights
+        $.each(data.questions, function (i, question) {
+		// tee mitä haluat jokaiselle
+		if(i < 10){
+			var d = new Date(0);
+			d.setUTCSeconds(question.created);
+			var curr_date = d.getDate() + "." + d.getMonth() + "." + d.getFullYear();	
+	    		$("#avoindatalist").append("<li><a class='rsswidget' href='" + question.url + "' title=''>" +question.title+ " </a><span>"+curr_date+"</span></li>");
+		}
+	});
+
+      } 
+  });
+});
+
+</script>
+</head>
+<body>
+<div id="avoindata-net" class="widget widget_rss">
+<h3 class="widgettitle">Avoindata.net Q&A</h3>
+<ol id="avoindatalist"></ol>
+</div>
+</body>
+</html>
+
