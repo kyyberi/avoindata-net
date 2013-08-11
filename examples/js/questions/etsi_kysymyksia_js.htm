@@ -86,7 +86,7 @@ $("#searchForm").submit(function(event) {
 	}else{
 		$("#list").append("<li>Hups. Kokeile toisilla sanoilla.</li>");
 	}
-		/* lisenssitiedot */
+	/* lisää lisenssitiedot loppuun */
 	license = data.rights[0].contentLicense;
 	attribution = data.rights[0].attributionText;
 	$("#list").append("<p class='copyright'>Copyright: <a href='" + license + "'>"+ license +"</a>, "+ attribution +" </p>");
