@@ -76,6 +76,7 @@ $("#searchForm").submit(function(event) {
                         tagsout = "tagit: ";
 			$.each(question.tags, function(j,tag) {
 				if(tag != 'NULL'){
+					// rakenna tagit, jotka lisätään kohta lista itemiin
             				tagsout = tagsout + "<span>" + tag + "</span>";
 				}
      			});
