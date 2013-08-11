@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<style>
+.copyright {
+	font-size:0.7em;
+}
+
+.tags {
+	margin-left:40px;
+}
+.tags span {
+	margin-left:20px;
+	background-color:#eee;
+	font-size:0.8em;
+	padding:3px;
+}
+a {
+	text-decoration:none;
+	color:green;
+}
+#list {
+	list-style-type: none;
+}
+#list li{
+	margin-top:10px;
+	border-bottom:dotted 1px #ddd;
+	padding-bottom:5px;
+}
+</style>
+
+</head>
+<body>
+<form action="http://api.avoindata.net/search/questions" id="searchForm">
+<input type="text" name="s" placeholder="Search..." />
+<input type="submit" value="Search" />
+</form>
+<ul id="list"></ul>
+
+<pre class="" id="data" rows="30" cols="200" style=""></pre>
+<script>
+/* attach a submit handler to the form */
+$("#searchForm").submit(function(event) {
+     $('#list').empty();
+     $("#list").append("<li>Etsitään...</li>");
+     event.preventDefault();
+
+     var $form = $( this ),
+     needle = $form.find( 'input[name="s"]' ).val(),
+     url = $form.attr( 'action' );
+     var posting = $.post( url, { term: needle } );
+  
+     posting.done(function( data ) {
+	$('#data').empty();
+	$("#data").append(JSON.stringify(data, null, 4));
+	$('#list').empty();
+
+
+	if(data.questions.length > 0){
+                // iteroi kysymykset
+		$.each(data.questions, function (i, question) {
+			// iteroi tagit kysymyksen sisällä
+                        tagsout = "tagit: ";
+			$.each(question.tags, function(j,tag) {
+				if(tag != 'NULL'){
+            				tagsout = tagsout + "<span>" + tag + "</span>";
+				}
+     			});
+			
+     			$("#list").append("<li><img style='width:30px;margin-right:10px;' alt='"+ question.userhandle +"' title='" + question.userhandle + "' src='" + question.useravatar +"'/><a href='" + question.url + "'>" +question.title+ "</a><div class='tags'>" + tagsout +"</div></li>");
+		});
+	}else{
+		$("#list").append("<li>Hups. Kokeile toisilla sanoilla.</li>");
+	}
+		/* lisenssitiedot */
+	license = data.rights[0].contentLicense;
+	attribution = data.rights[0].attributionText;
+	$("#list").append("<p class='copyright'>Copyright: <a href='" + license + "'>"+ license +"</a>, "+ attribution +" </p>");
+
+	
+     });
+});
+
+</script>
+
+</body>
+</html>
+
