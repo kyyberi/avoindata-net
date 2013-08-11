@@ -45,11 +45,12 @@ a {
 </head>
 <body>
 <form action="http://api.avoindata.net/search/questions" id="searchForm">
-<input type="text" name="s" placeholder="Search..." />
-<input type="submit" value="Search" />
+	<input type="text" name="s" placeholder="Search..." />
+	<input type="submit" value="Search" />
 </form>
 <ul id="list"></ul>
 
+// #data sisälle laitetaan JSON debuggausta varten. 
 <pre class="" id="data" rows="30" cols="200" style=""></pre>
 <script>
 /* attach a submit handler to the form */
