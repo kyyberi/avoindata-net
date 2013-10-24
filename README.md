@@ -7,3 +7,9 @@ Avoindata.net palvelun takana oleva koodi on avointa lähdekoodia. Sen voi ladat
 Sen sijaan se millä avoindata.net ulkoasu on tehty ei ole avointa lähdekoodia, joten sitä ei voi tänne laittaa.
 
 ![alt tag](http://avoindata.net/images/github/avoin-front.png)gav
+
+Repo sisältää:
+1. Avoindata.net API koodit
+2. API dokumentaatio sivun
+3. API konsolin koodin
+4. API käyttöesimerkkejä (JS, Python, PHP, R)
