@@ -12,7 +12,7 @@ Avoimeen dataan keskittyvän tukisivuston käyttäjiksi ja hyödyntäjiksi nähd
 ![Avoindata.net](http://avoindata.net/images/github/avoin-front.png)
 
 
-Yhteisön moderoima?
+Yhteisön moderoima
 -------------------
 
 Avoindata.net on Suomen avoimen datan yhteisön hallinnoima palvelu. Aktiiviset, muita auttavat, kysymyksiä esittävät ja 
