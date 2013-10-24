@@ -12,10 +12,29 @@ Avoimeen dataan keskittyvän tukisivuston käyttäjiksi ja hyödyntäjiksi nähd
 ![Avoindata.net](http://avoindata.net/images/github/avoin-front.png)
 
 
-Kenelle?
---------
+Yhteisön moderoima?
+-------------------
 
-Avoindata.net on Suomen avoimen datan yhteisön hallinnoima palvelu. Aktiiviset, muita auttavat, kysymyksiä esittävät ja hyviä vastauksia kirjoittavat käyttäjät "palkitaan" palvelun sisällä rintamerkeillä. Käyttäjän oikeudet lisääntyvät pisteiden karttuessa. Tietylle tasolle päässeet aktiiviset käyttäjät saavat mahdollisuuden hallinnollisiin toimintoihin.
+Avoindata.net on Suomen avoimen datan yhteisön hallinnoima palvelu. Aktiiviset, muita auttavat, kysymyksiä esittävät ja 
+hyviä vastauksia kirjoittavat käyttäjät "palkitaan" palvelun sisällä rintamerkeillä. Käyttäjän oikeudet lisääntyvät 
+pisteiden karttuessa. Tietylle tasolle päässeet aktiiviset käyttäjät saavat mahdollisuuden hallinnollisiin toimintoihin.
+
+Epävirallinen kansallinen pilotti
+---------------------------------
+
+Avoindata.net toimii pilottina ja mikäli se osoittautuu tarpeelliseksi, tulee vastaavantyyppinen palvelu osaksi 
+kansallista avoimen datan palvelua. Pilotoinnin aikana pystymme aloittamaan toistemme auttamisen, omalla kielellämme, 
+omista data varannoista ja niiden hyödyntämisestä sekä kehittämisestä.
+
+Referenssit
+-----------
+
+Palvelua voi käyttää kuka tahansa, kaikki ovat tervetulleita. Kuitenkin pääasialliset käyttäjät ovat Suomen avoimen datan yhteisön jäsenet.
+
+Organisaatioista ainakin seuraavat käyttävät palvelua oman toimintansa tukena: 
+![Avoindata.net](http://avoindata.net/images/github/hyodyntavat.png)
+
+
 
 Koodit
 --------
