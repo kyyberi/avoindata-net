@@ -11,7 +11,7 @@ Sen sijaan se millä avoindata.net ulkoasu on tehty ei ole avointa lähdekoodia,
 Sisällys
 --------
 
-1. Avoindata.net API koodit
+1. [Avoindata.net API koodit] (/kyyberi/avoindata-net/tree/master/API)
 2. API dokumentaatio sivun
 3. API konsolin koodin
 4. API käyttöesimerkkejä (JS, Python, PHP, R)
