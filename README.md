@@ -6,7 +6,7 @@ Avoindata.net palvelun takana oleva koodi on avointa lähdekoodia. Sen voi ladat
 
 Sen sijaan se millä avoindata.net ulkoasu on tehty ei ole avointa lähdekoodia, joten sitä ei voi tänne laittaa.
 
-![alt tag](http://avoindata.net/images/github/avoin-front.png)
+![Avoindata.net](http://avoindata.net/images/github/avoin-front.png)
 
 Repo sisältää:
 
