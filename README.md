@@ -12,6 +12,7 @@ Sisällys
 --------
 
 1. [Avoindata.net API koodit] (https://github.com/kyyberi/avoindata-net/tree/master/API)
-2. API dokumentaatio sivun
-3. API konsolin koodin
-4. API käyttöesimerkkejä (JS, Python, PHP, R)
+2. [API konsolin koodin] (https://github.com/kyyberi/avoindata-net/tree/master/API/Console)
+3. [API käyttöesimerkkejä - JS, Python, PHP, R] (https://github.com/kyyberi/avoindata-net/tree/master/examples)
+
+Lisäksi on API dokumentaatio sivu osoitteessa: [http://avoindata.net/dashboard/api/v1/] (http://avoindata.net/dashboard/api/v1/)
