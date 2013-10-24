@@ -12,7 +12,12 @@ Avoimeen dataan keskittyvän tukisivuston käyttäjiksi ja hyödyntäjiksi nähd
 ![Avoindata.net](http://avoindata.net/images/github/avoin-front.png)
 
 
-Sisällys
+Kenelle?
+--------
+
+Avoindata.net on Suomen avoimen datan yhteisön hallinnoima palvelu. Aktiiviset, muita auttavat, kysymyksiä esittävät ja hyviä vastauksia kirjoittavat käyttäjät "palkitaan" palvelun sisällä rintamerkeillä. Käyttäjän oikeudet lisääntyvät pisteiden karttuessa. Tietylle tasolle päässeet aktiiviset käyttäjät saavat mahdollisuuden hallinnollisiin toimintoihin.
+
+Koodit
 --------
 
 1. [Avoindata.net API koodit] (https://github.com/kyyberi/avoindata-net/tree/master/API)
