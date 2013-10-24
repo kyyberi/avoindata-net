@@ -8,7 +8,8 @@ Sen sijaan se millä avoindata.net ulkoasu on tehty ei ole avointa lähdekoodia,
 
 ![Avoindata.net](http://avoindata.net/images/github/avoin-front.png)
 
-Repo sisältää:
+Sisällys
+--------
 
 1. Avoindata.net API koodit
 2. API dokumentaatio sivun
