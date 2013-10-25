@@ -1,47 +1,39 @@
-<html>
-<!-- #########################################
-   Jquery esimerkki miten datatoiveet  
-   listataan 
-
-   Jarkko Moilanen
-   16.10.2013
-   Lisenssi: http://creativecommons.org/licenses/by-sa/3.0/
--->
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- 	<link rel="stylesheet" href="css/jq.css" type="text/css" media="print, projection, screen" /> -->
+	<link rel="stylesheet" href="http://avoindata.net/js/tablesorter/themes/green/style.css" type="text/css" id="" media="print, projection, screen" />
+	<script type="text/javascript" src="../jquery-latest.js"></script>
 <!-- # Jquery -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://avoindata.net/js/tablesorter/jquery.tablesorter.min.js"></script> 
 <script>
  $(document).ready(function(){
  $.ajax({
      type: "GET",
      url: "http://api.avoindata.net/categories/id/35",
-     dataType: 'json',   
+     dataType: 'json',
      cache: false,
      success: function(data)
       {
-	var needle = "FINLEX"; // vaihda tähän kaupungin nimi
+	$("#list thead").append("<tr><th>Datatoive</th><th>Katselumäärä</th><th>Peukutussaldo</th><th>Vastauksia</th></tr>");
         // JSON sisältää kaksi objektia: questions ja rights
         $.each(data.questions, function (i, question) {
-		// tee mitä haluat jokaiselle
-		var tagslowercase = [];		
-		for (var i = 0; i < question.tags.length; i++) {
-    			tagslowercase.push(question.tags[i].toLowerCase());
-		}
-                if(tagslowercase.indexOf(needle.toLowerCase()) > -1){
-			$("#list").append("<li><a href='" + question.url +"'>" +question.title+ "</a></li>");
-                }; 
-	});
-
-      } 
+            $("#list tbody").append("<tr><td><a href='" + question.url +"'>" +question.title+ "</a></td><td>"+ question.viewscount +"</td><td>"+ question.netvotes +"</td><td>"+ question.answerscount +"</td></tr>");
+        });
+	$("#list").tablesorter(); 
+      }
+	
   });
+
 });
 
 </script>
 
 </head>
 <body>
-<div id="list"></div><br/>
+<table class="tablesorter" id="list">
+<thead></thead>
+<tbody></tbody>
+</table>
 </body>
 </html>
