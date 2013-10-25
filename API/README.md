@@ -1,7 +1,5 @@
-q2a-api
-=======
+Avoindata.net RESTful API 
+=========================
 
-RESTful API to Questions&amp;Answers
-
-API kuvaus on osoitteessa: http://avoindata.net/dashboard/api/v1/
-
+API kuvaus ja Dashboard löytyy osoitteesta: http://avoindata.net/dashboard/api/v1/
+![Avoindata.net](http://avoindata.net/images/github/avoin-dashboard.png)
