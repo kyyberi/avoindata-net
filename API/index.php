@@ -781,7 +781,7 @@ static public function ApiStatsDaily()
 		$tiedot = "{ \"questions\": [\n";
 		$title = "";
 		$acount = "";
-		$posts = mysqli_query($con,"select categoryid, UNIX_TIMESTAMP(created) as created, postid, title, tags as tagit FROM qa_posts WHERE categoryid =".$cid." ORDER BY created DESC;") or die(ApiErrors::errorDbQuery(mysqli_error($con), mysqli_errno($con), __FUNCTION__));	
+		$posts = mysqli_query($con,"select categoryid, UNIX_TIMESTAMP(created) as created, acount, views, netvotes, postid, title, tags as tagit FROM qa_posts WHERE categoryid =".$cid." ORDER BY created DESC;") or die(ApiErrors::errorDbQuery(mysqli_error($con), mysqli_errno($con), __FUNCTION__));	
 	 	$num_rows = mysqli_num_rows($posts);
 		while ($row = mysqli_fetch_array($posts)):  
 			$str = $row['title'];
@@ -789,6 +789,9 @@ static public function ApiStatsDaily()
 			$title = api::myreplace($title);
 			$postid = $row['postid'];
 			$tagit    =  $row['tagit'];
+			$views    =  $row['views'];
+			$acount    =  $row['acount'];
+			$netvotes    =  $row['netvotes'];
 			$mytags_arr = explode(",",$row['tagit']);
 			if(sizeof($mytags_arr) > 1){
 				$tagsout = "\"tags\": [";
@@ -806,7 +809,15 @@ static public function ApiStatsDaily()
 				$normalized_title = api::normalize_str($title);
 				$url = "http://avoindata.net/".$postid."/";
 				$url .= strtolower($normalized_title);
-				$tiedot .= "    {\"postid\": ".$postid.",\n     \"title\": \"".$title."\",\n     \"url\": \"".$url."\",\n     \"created\": ".$created.",\n     ".$tagsout."\n     },\n";
+				$tiedot .= "    {\"postid\": ".$postid.",";
+				$tiedot .= "\n     \"title\": \"".$title."\",";
+				$tiedot .= "\n     \"url\": \"".$url."\",";
+				$tiedot .= "\n     \"viewscount\": ".$views.",";
+				$tiedot .= "\n     \"answerscount\": ".$acount.",";
+				$tiedot .= "\n     \"netvotes\": ".$netvotes.",";
+				$tiedot .= "\n     \"created\": ".$created.",";
+				$tiedot .= "\n     ".$tagsout."\n     },\n";
+				//$tiedot .= "    {\"postid\": ".$postid.",\n     \"title\": \"".$title."\",\n     \"url\": \"".$url."\",\n     \"created\": ".$created.",\n     ".$tagsout."\n     },\n";
 				$found = true;
 				$counter++;
 			}
@@ -2116,7 +2127,7 @@ static public function AnswersId($uid){
    }	
 
  public function getConnection(){
-	$con = mysqli_connect("127.0.0.1","username","passwd","dbname");
+	$con = mysqli_connect("127.0.0.1","avoin","G!8EmSyBZh","avoindata");
 	return $con;
  }
 
