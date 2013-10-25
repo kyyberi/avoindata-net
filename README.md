@@ -47,4 +47,5 @@ Lisäksi on API dokumentaatio sivu osoitteessa: [http://avoindata.net/dashboard/
 
 Avoindata.net palvelun takana oleva koodi on avointa lähdekoodia. Sen voi ladata itselle osoitteesta https://github.com/q2a/question2answer. Pitää tosin ottaa huomioon, että avoindata.net otettiin käyttöön ennen kuin versio 1.6 julkistettiin ja näin ollen käytössä on dev versio.
 
-Sen sijaan se millä avoindata.net ulkoasu on tehty ei ole avointa lähdekoodia, joten sitä ei voi tänne laittaa.
+Sen sijaan se millä avoindata.net ulkoasu on tehty ei ole avointa lähdekoodia, joten sitä ei voi tänne laittaa. 
+Kaikki muutokset toiminnallisuuteen on tehty hookien kautta teemaan, joten core koodi on käytössä sellaisenaan.
