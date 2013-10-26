@@ -2127,7 +2127,7 @@ static public function AnswersId($uid){
    }	
 
  public function getConnection(){
-	$con = mysqli_connect("127.0.0.1","avoin","G!8EmSyBZh","avoindata");
+	$con = mysqli_connect("127.0.0.1","dbuser","passwd","dbname");
 	return $con;
  }
 
