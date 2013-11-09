@@ -1,5 +1,5 @@
-Avoindata.net
-=============
+Avoindata.net & Avoindata.net RESTful API
+=========================================
 
 [Avoindata.net] (http://avoindata.net) on pystytetty suomalaisen avoimen datan verkoston avoimeksi tukisivustoksi.
 
