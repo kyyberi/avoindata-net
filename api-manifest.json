@@ -1,12 +1,13 @@
 {
     "apis": [
         {
-            "name": "Name of Your APIs",
-            "description": "Description of what your api does and the value it delivers.",
-            "image": "https://example.com/image.png",
-            "keywords": "keywords, tags, that, describe, api",
-            "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
-            "attribution": "Individual or Company Name",
+            "name": "Avoindata.net RESTful API",
+            "description": "
+API provides JSON formatted avoindata.net - Finnish Open data question-answer - service data including the questions, answers, categories and tags.",
+            "image": "http://avoindata.net/qa-theme/tovolt/images/opendata.png",
+            "keywords": "open data, Finland, community, question, answer",
+            "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+            "attribution": "Sisältö on Suomen avoimen datan yhteisön tuottamaa, avoindata.net",
             "definitions": [
                 {
                     "type": "swagger",
