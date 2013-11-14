@@ -1,0 +1,20 @@
+{
+    "apis": [
+        {
+            "name": "Name of Your APIs",
+            "description": "Description of what your api does and the value it delivers.",
+            "image": "https://example.com/image.png",
+            "keywords": "keywords, tags, that, describe, api",
+            "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+            "attribution": "Individual or Company Name",
+            "definitions": [
+                {
+                    "type": "swagger",
+                    "url": "https://github.com/locationofdefinition"
+                }
+            ]
+        }
+    ],
+    "tags": "api-commons-manifest",
+    "updated": "11/04/2013"
+}
